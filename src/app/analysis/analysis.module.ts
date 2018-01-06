@@ -4,8 +4,8 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { SharedModule } from '@app/shared';
 
-import { ExamplesRoutingModule } from './examples-routing.module';
-import { ExamplesComponent } from './examples/examples.component';
+import { AnalysisRoutingModule } from './analysis-routing.module';
+import { AnalysisComponent } from './analysis/analysis.component';
 import { TodosComponent } from './todos/todos.component';
 import { todosReducer } from './todos/todos.reducer';
 import { TodosEffects } from './todos/todos.effects';
@@ -15,11 +15,13 @@ import { StockMarketEffects } from './stock-market/stock-market.effects';
 import { StockMarketService } from './stock-market/stock-market.service';
 import { ParentComponent } from './theming/parent/parent.component';
 import { ChildComponent } from './theming/child/child.component';
+import {DashboardComponent} from "@app/analysis/dashboard/dashboard.component";
+import {DashboardService} from "@app/analysis/dashboard/dashboard.service";
 
 @NgModule({
   imports: [
     SharedModule,
-    ExamplesRoutingModule,
+    AnalysisRoutingModule,
     StoreModule.forFeature('examples', {
       todos: todosReducer,
       stocks: stockMarketReducer
@@ -27,14 +29,18 @@ import { ChildComponent } from './theming/child/child.component';
     EffectsModule.forFeature([TodosEffects, StockMarketEffects])
   ],
   declarations: [
-    ExamplesComponent,
+    AnalysisComponent,
     TodosComponent,
     StockMarketComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    DashboardComponent
   ],
-  providers: [StockMarketService]
+  providers: [
+    StockMarketService,
+    DashboardService
+  ]
 })
-export class ExamplesModule {
+export class AnalysisModule {
   constructor() {}
 }

@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 
-import { ExamplesModule } from '../examples.module';
+import { AnalysisModule } from '../analysis.module';
 
 import { TodosComponent } from './todos.component';
 
@@ -14,7 +14,7 @@ describe('TodosComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [CoreModule, SharedModule, ExamplesModule]
+        imports: [CoreModule, SharedModule, AnalysisModule]
       }).compileComponents();
     })
   );

@@ -4,7 +4,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 
-import { ExamplesModule } from '../examples.module';
+import { AnalysisModule } from '../analysis.module';
 
 import { StockMarketComponent } from './stock-market.component';
 
@@ -19,7 +19,7 @@ describe('StockMarketComponent', () => {
           NoopAnimationsModule,
           CoreModule,
           SharedModule,
-          ExamplesModule
+          AnalysisModule
         ]
       }).compileComponents();
     })

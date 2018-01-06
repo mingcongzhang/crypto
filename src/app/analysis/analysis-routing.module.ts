@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ExamplesComponent } from './examples/examples.component';
+import { AnalysisComponent } from './analysis/analysis.component';
 import { TodosComponent } from './todos/todos.component';
 import { StockMarketComponent } from './stock-market/stock-market.component';
 import { ParentComponent } from './theming/parent/parent.component';
+import {DashboardComponent} from "@app/analysis/dashboard/dashboard.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: ExamplesComponent,
+    component: AnalysisComponent,
     children: [
       {
         path: '',
@@ -36,6 +37,13 @@ const routes: Routes = [
         data: {
           title: 'Theming'
         }
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: {
+          title: 'Dashboard'
+        }
       }
     ]
   }
@@ -45,4 +53,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ExamplesRoutingModule {}
+export class AnalysisRoutingModule {}

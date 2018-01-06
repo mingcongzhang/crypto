@@ -9,11 +9,10 @@
 
     <span *ngFor="let column of marketDataTableColumns">
 
-
       <ng-container [matColumnDef]="column" *ngIf="column==='logourl'">
-        <mat-header-cell *matHeaderCellDef> {{column | uppercase}} </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> LOGO </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <a><img [src]="element[column]" height="42"/></a>
+          <img [src]="element[column]" height="42" [matTooltip]="element['basecurrencylong']" matTooltipPosition="right">
         </mat-cell>
       </ng-container>
 
@@ -23,7 +22,6 @@
           {{element[column]}}
         </mat-cell>
       </ng-container>
-
 
     </span>
 

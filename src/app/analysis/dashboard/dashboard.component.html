@@ -1,1 +1,38 @@
-<pre *ngIf="marketData">{{marketData|json}}</pre>
+<div class="example-container mat-elevation-z8" *ngIf="marketDataTableSource">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="marketDataTableSource" matSort>
+
+    <span *ngFor="let column of marketDataTableColumns">
+
+
+      <ng-container [matColumnDef]="column" *ngIf="column==='logourl'">
+        <mat-header-cell *matHeaderCellDef> {{column | uppercase}} </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <a><img [src]="element[column]" height="42"/></a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container [matColumnDef]="column" *ngIf="column!=='logourl'">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{column | uppercase}} </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element[column]}}
+        </mat-cell>
+      </ng-container>
+
+
+    </span>
+
+    <mat-header-row *matHeaderRowDef="marketDataTableColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: marketDataTableColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20, marketData.length]">
+  </mat-paginator>
+</div>

@@ -10,8 +10,8 @@ const HttpsProxyAgent = require('https-proxy-agent');
  */
 const proxyConfig = [
   {
-    context: '/bittrex',
-    pathRewrite: { '^/bittrex': '' },
+    context: '/API/bittrex',
+    pathRewrite: { '^/API/bittrex': '' },
     target: 'https://bittrex.com/api/v1.1/public',
     changeOrigin: true,
     secure: false

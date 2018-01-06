@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import {catchError} from "rxjs/operators";
 import {of} from "rxjs/observable/of";
 
-const BITTREX_API = '/bittrex';
+const BITTREX_API = '/API/bittrex';
 const MARKET_URL = '/getmarkets';
 
 @Injectable()

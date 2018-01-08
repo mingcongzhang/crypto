@@ -15,6 +15,13 @@ const proxyConfig = [
     target: 'https://bittrex.com/api/v1.1/public',
     changeOrigin: true,
     secure: false
+  },
+  {
+    context: '/API/blockchain',
+    pathRewrite: { '^/API/blockchain': '' },
+    target: 'https://api.blockchain.info',
+    changeOrigin: true,
+    secure: false
   }
 ];
 

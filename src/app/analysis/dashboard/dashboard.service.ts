@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import {catchError} from "rxjs/operators";
 import {of} from "rxjs/observable/of";
 
-const BITTREX_API = '/API/bittrex';
+const BITTREX_PROXY = '/API/bittrex';
 const MARKET_URL = '/getmarkets';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class DashboardService {
 
   retrieveMarkets(): Observable<any> {
     return this.httpClient
-      .get(BITTREX_API + MARKET_URL, {})
+      .get(BITTREX_PROXY + MARKET_URL, {})
       .pipe(
         catchError(() => of('Error, could not load joke :-('))
       );

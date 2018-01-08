@@ -6,6 +6,7 @@ import { TodosComponent } from './todos/todos.component';
 import { StockMarketComponent } from './stock-market/stock-market.component';
 import { ParentComponent } from './theming/parent/parent.component';
 import {DashboardComponent} from "@app/analysis/dashboard/dashboard.component";
+import {PerformanceComponent} from "@app/analysis/performance/performance.component";
 
 const routes: Routes = [
   {
@@ -43,6 +44,13 @@ const routes: Routes = [
         component: DashboardComponent,
         data: {
           title: 'Dashboard'
+        }
+      },
+      {
+        path: 'performance',
+        component: PerformanceComponent,
+        data: {
+          title: 'Performance'
         }
       }
     ]

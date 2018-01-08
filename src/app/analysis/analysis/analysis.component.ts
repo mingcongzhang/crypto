@@ -13,7 +13,8 @@ export class AnalysisComponent implements OnInit {
     { link: 'todos', label: 'Todos' },
     { link: 'stock-market', label: 'Stock Market' },
     { link: 'theming', label: 'Theming' },
-    { link: 'dashboard', label: 'Dashboard'}
+    { link: 'dashboard', label: 'Dashboard'},
+    { link: 'performance', label: 'Performance'}
   ];
 
   constructor() {}

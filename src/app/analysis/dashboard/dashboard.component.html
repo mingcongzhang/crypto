@@ -1,36 +1,42 @@
-<div class="example-container mat-elevation-z8" *ngIf="marketDataTableSource">
-  <div class="example-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-  </div>
+<mat-card class="example-card">
+    <div class="example-container mat-elevation-z8" *ngIf="marketDataTableSource">
+      <mat-card-header>
+        <mat-card-title>Cryptal Exchange Overview</mat-card-title>
+        <mat-card-subtitle>Data from Bittrex</mat-card-subtitle>
+      </mat-card-header>
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
 
-  <mat-table #table [dataSource]="marketDataTableSource" matSort>
+      <mat-table #table [dataSource]="marketDataTableSource" matSort>
 
-    <span *ngFor="let column of marketDataTableColumns">
+        <span *ngFor="let column of marketDataTableColumns">
 
-      <ng-container [matColumnDef]="column" *ngIf="column==='logourl'">
-        <mat-header-cell *matHeaderCellDef> LOGO </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <img [src]="element[column]" height="42" [matTooltip]="element['basecurrencylong']" matTooltipPosition="right">
-        </mat-cell>
-      </ng-container>
+          <ng-container [matColumnDef]="column" *ngIf="column==='logourl'">
+            <mat-header-cell *matHeaderCellDef> LOGO </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <img [src]="element[column]" height="42" [matTooltip]="element['marketcurrencylong']" matTooltipPosition="right">
+            </mat-cell>
+          </ng-container>
 
-      <ng-container [matColumnDef]="column" *ngIf="column!=='logourl'">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{column | uppercase}} </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          {{element[column]}}
-        </mat-cell>
-      </ng-container>
+          <ng-container [matColumnDef]="column" *ngIf="column!=='logourl'">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> {{column | uppercase}} </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element[column]}}
+            </mat-cell>
+          </ng-container>
 
-    </span>
+        </span>
 
-    <mat-header-row *matHeaderRowDef="marketDataTableColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: marketDataTableColumns;"></mat-row>
-  </mat-table>
+        <mat-header-row *matHeaderRowDef="marketDataTableColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: marketDataTableColumns;"></mat-row>
+      </mat-table>
 
-  <mat-paginator #paginator
-                 [pageSize]="10"
-                 [pageSizeOptions]="[5, 10, 20, marketData.length]">
-  </mat-paginator>
-</div>
+      <mat-paginator #paginator
+                     [pageSize]="10"
+                     [pageSizeOptions]="[5, 10, 20, marketData.length]">
+      </mat-paginator>
+    </div>
+</mat-card>

@@ -15,10 +15,10 @@ export class DashboardComponent implements AfterViewInit {
   marketData: BittrexMarket[] = [];
   marketDataTableColumns = [
     'logourl',
-    'basecurrency',
     'marketcurrency',
-    'basecurrencylong',
+    'basecurrency',
     'marketcurrencylong',
+    'basecurrencylong',
     'mintradesize',
     'marketname',
     'isactive',

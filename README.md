@@ -11,7 +11,7 @@
  ```
  or if in dev mode
  ```
- ng serve --proxy-config proxy.conf.json
+ ng serve --proxy-config proxy.conf.js
  ```
  ## Main tasks
  

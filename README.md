@@ -9,6 +9,10 @@
  ```sh
  npm start
  ```
+ or if in dev mode
+ ```
+ ng serve --proxy-config proxy.conf.json
+ ```
  ## Main tasks
  
  Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
